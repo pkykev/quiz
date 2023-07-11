@@ -41,8 +41,6 @@ console.log(questions[0].Quest) //targeting objects and arrays combined
 h2question.textContent = questions[0].Quest //setting text content of element targeting objects and arrays
 //starts with page to get scores from local
 
-
-
 function start() {
   Z.textContent = "START"
   Z.addEventListener("click",function(){
@@ -55,14 +53,11 @@ function start() {
   
 }
 
-
 function timerGo() {
   timer = setInterval(function(){
     reduceTimer(1);
   },1000)
 }
-// timerGo()//testing
-
 
 function startGameshow() {
   
@@ -83,7 +78,6 @@ function nextQuestion(){
   displayAnswer()
   }
 }
-
 
 function displayAnswer(){
   var answers = questions[currQuestion].answer1.concat(questions[currQuestion].answer2)
@@ -136,17 +130,11 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
 
   
   
-  // function saveScoreBoard(){
-  //   var savedScoreBoard = localStorage.getItem("scoreboard")
-  //   if(!savedScoreBoard) {
-  //     savedScoreBoard = []
-  //     savedScoreBoard.push(`Pat ${100.0*score / questions.length}%`)
-  //     localStorage.setItem("scoreboard",savedScoreBoard)
-  //   }else{
-  //     savedScoreBoard.push(`Pat ${100.0*score / questions.length}%`)
-  //     localStorage.setItem("scoreboard",savedScoreBoard)
-  //   }
-  // }
+  //TODO
+  //figure out why my local is getting overwritten with var topscore
+  //figure out how to re enable the start button
+  //add more questions (i have the logic set up so I can add as many as i want)
+  //change textcontent of topscore to show current localstorage saved top score
 
 
 
@@ -164,12 +152,7 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
       // score();//need
     }
   }
-  //combine with checktop score, rmv line 1 (not needed) stringify and overwrite local within the if statement for top score// DONE
-  // function scoreStorage(){
-  //   topScore[0].userScore =+ (100.0*score / questions.length)
-  //   localStorage.setItem("scoreboard1", JSON.stringify(topScore))
-  //   console.log(localStorage.getItem("scoreboard1"))
-  // }
+  
   //check for localstorage to have a top score already and push stringify if null
   function getScore(){
     let getSavedScore = localStorage.getItem("scoreboard1")
@@ -181,12 +164,6 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
       console.log(topScore)
     }
   }
-
-  // function saveInitials(){
-  //  let initialsInput = prompt('Enter initials for topscore')
-  //  topScore[0].initials.push(initialsInput)
-  //  console.log(topScore[0].initials)
-  // }
 
   function checkTopScore(item){
     if(item > topScore[0].userScore){
