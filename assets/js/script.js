@@ -87,6 +87,7 @@ function displayAnswer(){
      answers.splice(popper, 1)
      console.log(popper)
      console.log(answers)
+     console.log(answers.length)
     }
 }
 
@@ -102,12 +103,17 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
   })
   }
   
+  //Not working, missing functionality to get start button back, per instructor gary  :  the start button loads up with no set visibility state, so when the function initiates js just sets it and leaves it
   function addStartButton(){
-    if(Z.style.display === "none"){
-      Z.style.display = "block"
+    console.log(Z.style.visibility)
+    if(Z.style.visibility === "visible"){
+      console.log("hello")
+      Z.style.visibility = "hidden"
     } else {
-      Z.style.display = "none"
+      console.log("hello2")
+      Z.style.visibility = "visible"
     }
+    
   }
 
   function youreRight(){
@@ -126,6 +132,7 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
     checkTopScore(100.0*score / questions.length)
     
     getScore()
+    addStartButton()
   }
 
   
@@ -135,9 +142,6 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
   //figure out how to re enable the start button
   //add more questions (i have the logic set up so I can add as many as i want)
   //change textcontent of topscore to show current localstorage saved top score
-
-
-
 
 
   function reduceTimer(num){
@@ -164,6 +168,7 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
       console.log(topScore)
     }
   }
+  
 
   function checkTopScore(item){
     if(item > topScore[0].userScore){
@@ -174,7 +179,7 @@ function overForm(){//viktor quote from LoL this is actually my event checker lo
       h2topScore.textContent = (`${topScore[0].initials} has the current top score of ${topScore[0].userScore}%`)
     }
   }
-console.log(topScore)
+
 start()
 // overForm()//possibly need to disable all 4 buttons in some function or move the overform call: this is to prevent the user from breaking my app
 
